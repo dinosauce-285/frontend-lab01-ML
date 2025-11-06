@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import InputForm from './components/InputForm'; // Không cần import JobSelector ở đây nữa
+import PredictionDisplay from './components/PredictionDisplay';
 
 function App() {
+  const [predictedSalary, setPredictedSalary] = useState(null);
+
+  const handlePredict = (formData) => {
+    console.log("Form Data Submitted:", formData);
+    setPredictedSalary(5000); 
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Salary Predictor</h1> 
       </header>
+      <main>
+        <InputForm onPredict={handlePredict} />
+        <PredictionDisplay salary={predictedSalary} />
+      </main>
     </div>
   );
 }
