@@ -1,24 +1,60 @@
 import React, { useState } from 'react';
+import InputForm from './components/InputForm';
 import './App.css';
-import InputForm from './components/InputForm'; // Không cần import JobSelector ở đây nữa
-import PredictionDisplay from './components/PredictionDisplay';
 
 function App() {
-  const [predictedSalary, setPredictedSalary] = useState(null);
+  const [prediction, setPrediction] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const handlePredict = (formData) => {
-    console.log("Form Data Submitted:", formData);
-    setPredictedSalary(5000); 
+  const handlePredict = async (formData) => {
+    setLoading(true);
+    setPrediction(null);
+    setError(null);
+
+    try {
+      // ✅ Đổi URL thành /predict_salary
+      const response = await fetch('https://backend-lab01-ml.onrender.com/predict_salary', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // ✅ Gửi trực tiếp formData
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Something went wrong with the prediction.');
+      }
+
+      const data = await response.json();
+      // ✅ Đọc đúng key 'predicted_salary'
+      setPrediction(data.predicted_salary);
+    } catch (err) {
+      console.error("Error during prediction:", err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Salary Predictor</h1> 
+        <h1>Salary Prediction App</h1>
       </header>
       <main>
         <InputForm onPredict={handlePredict} />
-        <PredictionDisplay salary={predictedSalary} />
+
+        {loading && <p className="message">Predicting salary...</p>}
+        {error && <p className="error-message">Error: {error}</p>}
+        {prediction !== null && (
+          <div className="prediction-result">
+            <h2>Predicted Salary:</h2>
+            <p>${prediction.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          </div>
+        )}
       </main>
     </div>
   );
