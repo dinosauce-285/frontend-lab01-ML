@@ -1,4 +1,3 @@
-/* Form styles */
 .salary-form {
   max-width: 500px;
   margin: 0 auto;
@@ -17,7 +16,6 @@
   font-size: 14px;
 }
 
-/* Unified styles cho tất cả inputs và selects */
 .form-group input[type="number"],
 .form-group select {
   width: 100%;
@@ -32,8 +30,6 @@
   font-family: inherit;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-
-/* Custom arrow cho select dropdown */
 .form-group select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -44,18 +40,16 @@
   cursor: pointer;
 }
 
-/* Number input không cần custom arrow vì có spinner buttons */
 .form-group input[type="number"] {
   padding: 10px 12px;
 }
 
-/* Hover state */
+
 .form-group input[type="number"]:hover,
 .form-group select:hover {
   border-color: #80bdff;
 }
 
-/* Focus state */
 .form-group input[type="number"]:focus,
 .form-group select:focus {
   outline: none;
@@ -63,7 +57,6 @@
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-/* Disabled state */
 .form-group input[type="number"]:disabled,
 .form-group select:disabled {
   background-color: #e9ecef;
@@ -71,7 +64,6 @@
   cursor: not-allowed;
 }
 
-/* Submit button */
 .predict-button {
   width: 100%;
   padding: 12px 20px;
@@ -101,12 +93,11 @@
   opacity: 0.6;
 }
 
-/* Placeholder style cho select options */
 .form-group select option[value=""] {
   color: #6c757d;
 }
 
-/* Remove spinner buttons from number input (optional) */
+
 .form-group input[type="number"]::-webkit-inner-spin-button,
 .form-group input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

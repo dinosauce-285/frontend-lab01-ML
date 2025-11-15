@@ -143,12 +143,10 @@ const categorizeJobs = (jobs) => {
     }
   });
 
-  // Sắp xếp alphabetically trong mỗi category
   Object.keys(categories).forEach(cat => {
     categories[cat].sort();
   });
 
-  // Xóa categories trống
   Object.keys(categories).forEach(cat => {
     if (categories[cat].length === 0) {
       delete categories[cat];

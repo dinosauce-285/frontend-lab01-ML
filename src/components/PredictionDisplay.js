@@ -1,5 +1,3 @@
-import React from 'react';
-
 function PredictionDisplay({ salary }) {
   return (
     <div className="prediction-display">

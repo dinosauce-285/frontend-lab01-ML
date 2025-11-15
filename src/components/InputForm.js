@@ -8,43 +8,31 @@ function InputForm({ onPredict }) {
   const [educationLevel, setEducationLevel] = useState('');
   const [jobTitle, setJobTitle] = useState('');
   const [yearsOfExperience, setYearsOfExperience] = useState('');
-  // const [selectedModel, setSelectedModel] = useState(''); // --> Bỏ dòng này
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const parsedAge = parseInt(age);
-    const parsedYearsOfExperience = parseFloat(yearsOfExperience); // Sử dụng parseFloat cho kinh nghiệm vì có thể có số lẻ
-
-    // Kiểm tra Years of Experience không được âm
+    const parsedYearsOfExperience = parseFloat(yearsOfExperience); 
     if (parsedYearsOfExperience < 0) {
       alert("Years of Experience cannot be negative.");
       return;
     }
 
-    // Kiểm tra Years of Experience không được lớn hơn Age
     if (parsedYearsOfExperience > parsedAge) {
       alert("Years of Experience cannot be greater than Age.");
       return;
     }
 
-    // --> Bỏ kiểm tra selectedModel vì backend tự chọn
-    // if (!selectedModel) {
-    //   alert("Please select a prediction model.");
-    //   return;
-    // }
 
     const formData = {
-      // Đảm bảo tên khóa khớp với các tên cột trong DataFrame gốc của bạn
-      // và là các khóa mà hàm preprocess_input của backend mong đợi
       "Age": parsedAge,
       "Gender": gender,
-      "Education Level": educationLevel, // Đảm bảo khớp với "Education Level"
-      "Job Title": jobTitle,             // Đảm bảo khớp với "Job Title"
-      "Years of Experience": parsedYearsOfExperience, // Đảm bảo khớp với "Years of Experience"
-      // "selectedModel": selectedModel, // --> Bỏ dòng này
+      "Education Level": educationLevel,
+      "Job Title": jobTitle,             
+      "Years of Experience": parsedYearsOfExperience, 
     };
-    onPredict(formData); // Gọi hàm onPredict từ component cha
+    onPredict(formData); 
   };
 
   return (
@@ -109,7 +97,7 @@ function InputForm({ onPredict }) {
           onChange={(e) => setYearsOfExperience(e.target.value)}
           required
           min="0"
-          step="0.1" // Cho phép nhập số thập phân cho kinh nghiệm
+          step="0.1" 
           placeholder="Enter years of experience"
         />
       </div>
@@ -117,7 +105,7 @@ function InputForm({ onPredict }) {
    
 
       {/* Predict Salary Button */}
-      <button type="submit" className="predict-button">Predict Salary</button>
+      <button type="submit" className="predict-button">Predict Salary Per Year</button>
     </form>
   );
 }

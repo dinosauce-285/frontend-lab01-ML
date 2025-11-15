@@ -11,11 +11,11 @@
 
 .App-header {
   margin-bottom: 30px;
-  color: #333; /* Darker header text */
+  color: #333;
 }
 
 .App-header h1 {
-  font-size: 2.5em; /* Larger header title */
+  font-size: 2.5em;
   margin: 0;
 }
 
@@ -24,10 +24,10 @@
   flex-direction: column;
   gap: 15px;
   align-items: flex-start;
-  padding: 25px; /* Slightly more padding */
-  border: 1px solid #e0e0e0; /* Lighter border */
+  padding: 25px;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
-  background-color: #ffffff; /* White background for form */
+  background-color: #ffffff; 
 }
 
 .form-group {
@@ -38,21 +38,21 @@
 }
 
 .form-group label {
-  margin-bottom: 7px; /* More space below label */
+  margin-bottom: 7px;
   font-weight: bold;
-  color: #555; /* Slightly darker label color */
+  color: #555; 
   font-size: 0.95em;
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 10px 12px; /* Adjusted padding */
-  border: 1px solid #ced4da; /* Bootstrap-like border */
-  border-radius: 5px; /* Slightly more rounded corners */
+  padding: 10px 12px;
+  border: 1px solid #ced4da; 
+  border-radius: 5px; 
   font-size: 16px;
   box-sizing: border-box;
-  background-color: #f8f9fa; /* Light grey background for inputs */
+  background-color: #f8f9fa; 
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -64,28 +64,28 @@
 }
 
 .predict-button {
-  background-color: #28a745; /* Green button */
+  background-color: #28a745; 
   color: white;
-  padding: 14px 25px; /* Larger button */
+  padding: 14px 25px; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1.1em; /* Larger font size */
-  margin-top: 25px; /* More space above button */
+  font-size: 1.1em; 
+  margin-top: 25px; 
   align-self: center;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .predict-button:hover {
-  background-color: #218838; /* Darker green on hover */
-  transform: translateY(-1px); /* Slight lift effect */
+  background-color: #218838; 
+  transform: translateY(-1px); 
 }
 
 .prediction-display {
   margin-top: 30px;
   padding: 20px;
-  border: 1px solid #c3e6cb; /* Lighter green border */
-  background-color: #d4edda; /* Lighter green background */
+  border: 1px solid #c3e6cb; 
+  background-color: #d4edda; 
   color: #155724;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);

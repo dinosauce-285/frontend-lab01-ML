@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import InputForm from './components/InputForm';
 import './App.css';
 
@@ -13,13 +12,11 @@ function App() {
     setError(null);
 
     try {
-      // ✅ Đổi URL thành /predict_salary
       const response = await fetch('https://backend-lab01-ml.onrender.com/predict_salary', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        // ✅ Gửi trực tiếp formData
         body: JSON.stringify(formData),
       });
 
@@ -29,7 +26,6 @@ function App() {
       }
 
       const data = await response.json();
-      // ✅ Đọc đúng key 'predicted_salary'
       setPrediction(data.predicted_salary);
     } catch (err) {
       console.error("Error during prediction:", err);
@@ -51,8 +47,8 @@ function App() {
         {error && <p className="error-message">Error: {error}</p>}
         {prediction !== null && (
           <div className="prediction-result">
-            <h2>Predicted Salary:</h2>
-            <p>${prediction.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+            <h2>You may earn about:</h2>
+            <p>${prediction.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/year</p>
           </div>
         )}
       </main>
