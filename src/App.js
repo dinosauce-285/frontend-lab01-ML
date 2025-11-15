@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import InputForm from './components/InputForm';
 import './App.css';
 
@@ -47,8 +48,8 @@ function App() {
         {error && <p className="error-message">Error: {error}</p>}
         {prediction !== null && (
           <div className="prediction-result">
-            <h2>You may earn about:</h2>
-            <p>${prediction.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/year</p>
+            <h3>You may earn about:</h3>
+            <h1>${prediction.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/year</h1>
           </div>
         )}
       </main>
